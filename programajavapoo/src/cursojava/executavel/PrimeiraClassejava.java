@@ -3,7 +3,7 @@ package cursojava.executavel;
 import cursojava.classes.Aluno;
 
 public class PrimeiraClassejava {
- 
+
 	public static void main(String[] args) {
 		
 
