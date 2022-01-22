@@ -1,61 +1,55 @@
 package cursojava.executavel;
 
+import javax.swing.JOptionPane;
+
 import cursojava.classes.Aluno;
 
 public class PrimeiraClassejava {
 
 	public static void main(String[] args) {
 		
+		String nome =JOptionPane.showInputDialog("qual o nome do aluno ? ");
+		String idade = JOptionPane.showInputDialog("qual a idade do aluno?");
+		String dataNascimento =JOptionPane.showInputDialog("qual a data de nascimento ? ");
+		String rg = JOptionPane.showInputDialog("Qual o RG?");
+		String cpf = JOptionPane.showInputDialog("Qual o CPF");
+		String mae = JOptionPane.showInputDialog("Qual o nome da mãe?");
+		String pai = JOptionPane.showInputDialog("Qual o nome do pai?");
+		String dtMatricula = JOptionPane.showInputDialog("qual a data da matricula?");
+		String srMatriculado = JOptionPane.showInputDialog("Qual a serie ?");
+		String nomeEscola = JOptionPane.showInputDialog("Qual o nome da escola?");
+		String nt1 = JOptionPane.showInputDialog("qual o valor da nota 1 ?");
+		String nt2 = JOptionPane.showInputDialog("qual o valor da nota 2 ?");
+		String nt3 = JOptionPane.showInputDialog("qual o valor da nota 3 ?");
+		String nt4 = JOptionPane.showInputDialog("qual o valor da nota 4 ?");
+
+
+
 
 		/*new Aluno() é uma instancia (criacao de objeto)*/
 		/*Agora tems um objeto real na memoria*/
 		/*aluno1 ou alunox  é uma referencia para o objeto aluno*/
-		Aluno aluno1 = new Aluno(); /*Aqui será o João*/
-		aluno1.setNome("João da Silva");
-		aluno1.setIdade(55);
-		aluno1.setDataNascimento("18/10/1977");
-		aluno1.setRegistroGeral("224.524.3123-1");
-		aluno1.setNumeroCpf("132.413.345-66");
-		aluno1.setNomeMae("Fernada");
-		aluno1.setNomePai("Fernando");
-		aluno1.setDataMatricula("12/10/2014");
-		aluno1.setSerieMatriculado("5");
-		aluno1.setNomeEscola("Escola JDEV Treinamento");
-		aluno1.setNota1(9);
-		aluno1.setNota2(4);
-		aluno1.setNota3(7);
-		aluno1.setNota4(10);
 		
-			System.out.println("Nome é = "+ aluno1.getNome());	
-			System.out.println("Idade é = "+aluno1.getIdade());
-			System.out.println("A Data de Nascimento é = "+aluno1.getDataNascimento());
-			System.out.println("A média da nota é = "+aluno1.getMediaNota());
-			//OPERADOR TERNARIO :     ? =  SE VERDADE "APROVADO"           : = SENAO "REPROVADO"
-			System.out.println("Resultado = " +(aluno1.getAlunoAprovado()?"aprovado" : "reprovado"));
-			System.out.println("Resultado = "+aluno1.getAlunoAprovado2());
-			/*========================================================================*/
-		
-			System.out.println("=========================================================");
-		Aluno aluno2 = new Aluno(); /*Aqui será o Pedro*/
-		aluno2.setNome("pedro");
-		aluno2.setIdade(22);
-		aluno2.setDataNascimento("22/05/2000");
-		aluno2.setNota1(9);
-		aluno2.setNota2(9);
-		aluno2.setNota3(7);
-		aluno2.setNota4(10);
-		System.out.println("Nome é = "+ aluno2.getNome());	
-		System.out.println("Idade é = "+aluno2.getIdade());
-		System.out.println("A Data de Nascimento é = "+aluno2.getDataNascimento());
-		System.out.println("A média da nota é = "+aluno2.getMediaNota());
-		System.out.println("Resultado = "+aluno2.getAlunoAprovado2());
-				
-		Aluno aluno3 = new Aluno(); /*Aqui será o Alex*/
-		
-		Aluno aluno4 = new Aluno("Maria"); /*MARIA ESTA SENDO PASSADA POR PARAMETRO NO CONSTRUTOR NOME PADRAO*/
+		Aluno aluno1 = new Aluno(); 
+		aluno1.setNome(nome);
+		aluno1.setIdade(Integer.valueOf(idade));
+		aluno1.setDataNascimento(dataNascimento);
+		aluno1.setRegistroGeral(rg);
+		aluno1.setNumeroCpf(cpf);
+		aluno1.setNomeMae(mae);
+		aluno1.setNomePai(pai);
+		aluno1.setDataMatricula(dtMatricula);
+		aluno1.setSerieMatriculado(srMatriculado);
+		aluno1.setNomeEscola(nomeEscola);
+		aluno1.setNota1(Double.parseDouble (nt1));
+		aluno1.setNota2(Double.parseDouble(nt2));
+		aluno1.setNota3(Double.parseDouble(nt3));
+		aluno1.setNota4(Double.parseDouble(nt4));
 	
-		Aluno aluno5 = new Aluno("José", 40);
-		
+		System.out.println(aluno1.toString()); /*Dscrição do objeto na memória*/
+		System.out.println("Média do aluno =" + aluno1.getMediaNota() );
+		System.out.println("Resultado =" + aluno1.getAlunoAprovado2());
+	
 	}
 
 }
