@@ -1,6 +1,11 @@
 package cursojava.executavel;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.swing.JOptionPane;
+import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
@@ -9,8 +14,11 @@ public class PrimeiraClassejava {
 
 	public static void main(String[] args) {
 		
-		String nome =JOptionPane.showInputDialog("qual o nome do aluno ? ");
-		String idade = JOptionPane.showInputDialog("qual a idade do aluno?");
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		for (int qtd= 1; qtd <=2; qtd++) {
+		
+		String nome =JOptionPane.showInputDialog("qual o nome do "+qtd+ "º aluno ? ");
+		/*String idade = JOptionPane.showInputDialog("qual a idade do aluno?");
 		String dataNascimento =JOptionPane.showInputDialog("qual a data de nascimento ? ");
 		String rg = JOptionPane.showInputDialog("Qual o RG?");
 		String cpf = JOptionPane.showInputDialog("Qual o CPF");
@@ -26,7 +34,7 @@ public class PrimeiraClassejava {
 		
 		Aluno aluno1 = new Aluno(); 
 		aluno1.setNome(nome);
-		aluno1.setIdade(Integer.valueOf(idade));
+		/*aluno1.setIdade(Integer.valueOf(idade));
 		aluno1.setDataNascimento(dataNascimento);
 		aluno1.setRegistroGeral(rg);
 		aluno1.setNumeroCpf(cpf);
@@ -46,22 +54,36 @@ public class PrimeiraClassejava {
 			disciplina.setDisciplina(nomeDisciplina);
 			disciplina.setDisciplina(notaDisciplina);
 			disciplina.setNota(Double.valueOf(notaDisciplina));
-			
+		
 			aluno1.getDisciplinas().add(disciplina);
 		}
 		/*removendo alguma disciplina*/
 		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+		//opcao sim é Zero 0, não é 1, 2 é cancelar
 		if (escolha == 0) {
+			int continuarRemover = 0;
+			int posicao = 1;
+			
+			
+			while(continuarRemover == 0) {	
 			String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina 1, 2, 3, 4 ?");
-		aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue()-1); /*OBS: os valores de uma lista sempre  se iniciam em zero "0" entao lembre-se de na hr
+			//posicao de listas//
+		aluno1.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue()-posicao); /*OBS: os valores de uma lista sempre  se iniciam em zero "0" entao lembre-se de na hr
 		 que for declarar o valor a ser removido por -1 antes do fechamento dos parenteses*/
+		posicao ++;
+		continuarRemover = JOptionPane.showConfirmDialog(null, "continuar a Remover?");
+		}}
+		alunos.add(aluno1);
+		}	
+		for (Aluno aluno : alunos) {
+			System.out.println(aluno.toString()); /*Descrição do objeto na memória*/
+			System.out.println("Média do aluno =" + aluno.getMediaNota() );
+			System.out.println("Resultado =" + aluno.getAlunoAprovado());
+			System.out.println("---------------------------------------------------");
 		}
-		System.out.println(aluno1.toString()); /*Descrição do objeto na memória*/
-		System.out.println("Média do aluno =" + aluno1.getMediaNota() );
-		System.out.println("Resultado =" + aluno1.getAlunoAprovado());
+		}
+		
 	
 		
 	}
 
-
-	}
