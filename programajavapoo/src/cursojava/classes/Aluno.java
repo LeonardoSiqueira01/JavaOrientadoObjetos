@@ -1,5 +1,7 @@
 package cursojava.classes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /*Essa é nossa classe/objeto que representa o Aluno*/
@@ -16,19 +18,21 @@ public class Aluno {
 		private String dataMatricula;
 		private String nomeEscola;
 		private String serieMatriculado;
+		public void setDisciplinas(List<Disciplina> disciplinas) {
+			this.disciplinas = disciplinas;
+		}
+		/*Listas */
+		public List<Disciplina> getDisciplinas() {
+			return disciplinas;
+		}
 		
-		private disciplina disciplina = new disciplina();
-		public void setDisciplina(disciplina disciplina) {
-			this.disciplina = disciplina;
-		}
-		public disciplina getDisciplina() {
-			return disciplina;
-		}
+		private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+		
 		
 		public Aluno() { /* Construtor Java = Cria os dados na memoria - Sendo padrão do Java*/
 			
 		}
-		 /*MARIA QUE ESTA NO NOME4 ESTA SENDO PASSADA POR PARAMETRO AQUI*/
+		 
 		public Aluno (String nomePadrao) {  
 			nome = nomePadrao;
 		}
@@ -46,10 +50,10 @@ public class Aluno {
 		
 		@Override
 		public String toString() {
-			return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento
+			return "Aluno nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento
 					+ ", registroGeral=" + registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae
 					+ ", nomePai=" + nomePai + ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola
-					+ ", serieMatriculado=" + serieMatriculado + ", disciplina=" + disciplina + "]";
+					+ ", serieMatriculado=" + serieMatriculado+ "";
 		}
 		/*Void recebe e RETURN retorna*/
 		public void setNome(String nome) {
@@ -114,7 +118,11 @@ public class Aluno {
 		}
 		
 		public double getMediaNota() {
-			return (disciplina.getNota1()+disciplina.getNota2()+disciplina.getNota3()+ disciplina.getNota4())/4;
+			double SomaNotas = 0.0;
+			for (Disciplina disciplina : disciplinas) {
+				SomaNotas+=disciplina.getNota();
+			}
+			return SomaNotas / disciplinas.size();
 		}
 		public String getAlunoAprovado() {
 			double media = this.getMediaNota();
