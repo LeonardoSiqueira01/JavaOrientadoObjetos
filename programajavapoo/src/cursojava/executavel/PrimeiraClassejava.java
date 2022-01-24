@@ -36,26 +36,18 @@ public class PrimeiraClassejava {
 		aluno1.setSerieMatriculado(srMatriculado);
 		aluno1.setNomeEscola(nomeEscola);
 		
+		for (int pos = 1; pos <=4; pos++) {
+			String nomeDisciplina = JOptionPane.showInputDialog("nome da Disciplina "+pos+ " ?");
+			String notaDisciplina = JOptionPane.showInputDialog("nota da disciplina "+pos+ " ?");
+			
+			Disciplina disciplina = new Disciplina();
+			disciplina.setDisciplina(nomeDisciplina);
+			disciplina.setDisciplina(notaDisciplina);
+			disciplina.setNota(Double.valueOf(notaDisciplina));
+			
+			aluno1.getDisciplinas().add(disciplina);
+		}
 		
-		Disciplina disciplina1 = new Disciplina();
-		disciplina1.setDisciplina("banco de dados");
-		disciplina1.setNota(9);
-		aluno1.getDisciplinas().add(disciplina1);
-		
-		Disciplina disciplina2 = new Disciplina();
-		disciplina2.setDisciplina("matematica");
-		disciplina2.setNota(8);	
-		aluno1.getDisciplinas().add(disciplina2);
-		
-		Disciplina disciplina3 = new Disciplina();
-		disciplina3.setDisciplina("geografia");
-		disciplina3.setNota(7);
-		aluno1.getDisciplinas().add(disciplina3);
-		
-		Disciplina disciplina4 = new Disciplina();
-		disciplina4.setDisciplina("ingles");
-		disciplina4.setNota(9);
-		aluno1.getDisciplinas().add(disciplina4);
 		
 		System.out.println(aluno1.toString()); /*Descrição do objeto na memória*/
 		System.out.println("Média do aluno =" + aluno1.getMediaNota() );
