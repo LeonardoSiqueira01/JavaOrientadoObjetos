@@ -126,12 +126,16 @@ public class Aluno {
 		}
 		public String getAlunoAprovado() {
 			double media = this.getMediaNota();
+			if (media>=5) {
 			if(media>=7) {
 				return "aprovado";
+			} return "recuperacao";
 			}else {
 				return "reprovado";
 			}
 		}
+	
+
 		
 		@Override
 		public int hashCode() {
