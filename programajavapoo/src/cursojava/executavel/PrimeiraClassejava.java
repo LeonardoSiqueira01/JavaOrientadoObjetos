@@ -76,12 +76,14 @@ public class PrimeiraClassejava {
 		alunos.add(aluno1);
 		}	
 		for (Aluno aluno : alunos) {
+			if(aluno.getNome().equalsIgnoreCase("leo")) {
 			System.out.println(aluno.toString()); /*Descrição do objeto na memória*/
 			System.out.println("Média do aluno =" + aluno.getMediaNota() );
 			System.out.println("Resultado =" + aluno.getAlunoAprovado());
 			System.out.println("---------------------------------------------------");
-		}
-		}
+			break;
+			}
+		}}
 		
 	
 		
