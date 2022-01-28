@@ -5,9 +5,9 @@ import java.util.Objects;
 /*Essa classe disciplina servirá para todos objetos e instancias de notas e materias*/
 public class Disciplina {
 
-	private double Nota;
+	
 	private String Disciplina;
-
+	private double Nota;
 	
 
 	public double getNota() {

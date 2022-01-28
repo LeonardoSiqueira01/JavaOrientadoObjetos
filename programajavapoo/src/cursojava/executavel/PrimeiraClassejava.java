@@ -14,7 +14,7 @@ public class PrimeiraClassejava {
 
 	public static void main(String[] args) {
 		
-		List<Aluno> alunos = new ArrayList<Aluno>();
+		List<Aluno>alunos = new ArrayList<Aluno>();
 		for (int qtd= 1; qtd <=2; qtd++) {
 		
 		String nome =JOptionPane.showInputDialog("qual o nome do "+qtd+ "º aluno ? ");
@@ -52,7 +52,6 @@ public class PrimeiraClassejava {
 			
 			Disciplina disciplina = new Disciplina();
 			disciplina.setDisciplina(nomeDisciplina);
-			disciplina.setDisciplina(notaDisciplina);
 			disciplina.setNota(Double.valueOf(notaDisciplina));
 		
 			aluno1.getDisciplinas().add(disciplina);
@@ -80,21 +79,24 @@ public class PrimeiraClassejava {
 				alunos.remove(aluno);
 			break;
 			}else {
-			System.out.println(aluno.toString()); /*Descrição do objeto na memória*/
-			System.out.println("Média do aluno =" + aluno.getMediaNota() );
-			System.out.println("Resultado =" + aluno.getAlunoAprovado());
-			System.out.println("---------------------------------------------------");
-		}
-		}
+				System.out.println(aluno); /*Descrição do objeto na memória*/
+				System.out.println("Média do aluno =" + aluno.getMediaNota() );
+				System.out.println("Resultado =" + aluno.getAlunoAprovado());
+				System.out.println("--------------------------------------------------------");
+			}
+			}
 		for (Aluno aluno : alunos) {
-			System.out.println("Alunos que sobraram na lista");
+			System.out.println("alunos que sobraram na lista");
 			System.out.println(aluno.getNome());
 			System.out.println("suas materias são:");
 			
 			for (Disciplina disciplina : aluno.getDisciplinas()) {
 				System.out.println(disciplina.getDisciplina());
-				}
+				System.out.println(disciplina.getNota());
+
 			}
-		}}
+		}
+		}
+	}
 		
 
