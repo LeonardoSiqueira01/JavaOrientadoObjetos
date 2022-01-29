@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import cursojava.constantes.StatusAluno;
+
 /*Essa é nossa classe/objeto que representa o Aluno*/
 public class Aluno {
 
@@ -128,10 +130,10 @@ public class Aluno {
 			double media = this.getMediaNota();
 			if (media>=5) {
 			if(media>=7) {
-				return "aprovado";
-			} return "recuperacao";
+				return StatusAluno.APROVADO;
+			} return StatusAluno.RECUPERACAO;
 			}else {
-				return "reprovado";
+				return StatusAluno.REPROVADO;
 			}
 		}
 	
