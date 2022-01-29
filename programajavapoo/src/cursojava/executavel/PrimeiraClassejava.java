@@ -46,7 +46,7 @@ public class PrimeiraClassejava {
 		
 		
 		/*deixando a criação de disciplinas dinamica*/
-		for (int pos = 1; pos <=4; pos++) {
+		for (int pos = 1; pos <=1; pos++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("nome da Disciplina "+pos+ " ?");
 			String notaDisciplina = JOptionPane.showInputDialog("nota da disciplina "+pos+ " ?");
 			
@@ -75,7 +75,21 @@ public class PrimeiraClassejava {
 		alunos.add(aluno1);
 		}
 		for (int pos = 0; pos < alunos.size(); pos++) {
+			
 			Aluno aluno =  alunos.get(pos);
+			
+			if(aluno.getNome().equalsIgnoreCase("leo")) {
+				Aluno trocar = new Aluno();
+				trocar.setNome("aluno foi trocado");
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina("matematica");
+				disciplina.setNota(46);
+				
+				trocar.getDisciplinas().add(disciplina);
+				alunos.set(pos, trocar);
+				aluno = alunos.get(pos);
+			}
+			
 			System.out.println("aluno = "+aluno.getNome());
 			System.out.println("média do aluno = "+aluno.getMediaNota());
 			System.out.println("resultado = " +aluno.getAlunoAprovado());
