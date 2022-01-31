@@ -20,25 +20,27 @@ public class Aluno {
 		private String dataMatricula;
 		private String nomeEscola;
 		private String serieMatriculado;
+		
+			
+		/*Lista de disciplina */
+		private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+
+		/*setter da lista disciplina*/
 		public void setDisciplinas(List<Disciplina> disciplinas) {
 			this.disciplinas = disciplinas;
-		}
-		/*Listas */
+		} /*getter da lista disciplina*/
 		public List<Disciplina> getDisciplinas() {
 			return disciplinas;
 		}
-		
-		private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-		
-		
+		/*Construtor Java*/
 		public Aluno() { /* Construtor Java = Cria os dados na memoria - Sendo padrão do Java*/
 			
 		}
-		 
+		/*Construtor Java*/
 		public Aluno (String nomePadrao) {  
 			nome = nomePadrao;
 		}
-		
+		/*Construtor Java*/
 		public Aluno (String nomePadrao, int idadePadrao) {
 			nome = nomePadrao;
 			idade = idadePadrao;
@@ -50,14 +52,14 @@ public class Aluno {
 		/*SET é para adicionar ou receber dados para os atributos*/
 		/*GET é para resgatar ou obter o valor do atributo*/
 		
-		@Override
+		@Override /*toString*/
 		public String toString() {
 			return "Aluno nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento
 					+ ", registroGeral=" + registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae
 					+ ", nomePai=" + nomePai + ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola
 					+ ", serieMatriculado=" + serieMatriculado+ "";
 		}
-		/*Void recebe e RETURN retorna*/
+		/*Setters e Getters dos atributos do aluno*/
 		public void setNome(String nome) {
 			this.nome = nome;
 		}

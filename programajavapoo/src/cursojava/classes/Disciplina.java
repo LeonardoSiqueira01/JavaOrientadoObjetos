@@ -5,11 +5,11 @@ import java.util.Objects;
 /*Essa classe disciplina servirá para todos objetos e instancias de notas e materias*/
 public class Disciplina {
 
-	
+	/*2 atributos na classe disciplina*/
 	private String Disciplina;
 	private double Nota;
 	
-
+	/*getters e setters dos atributos*/
 	public double getNota() {
 		return Nota;
 	}
@@ -26,7 +26,7 @@ public class Disciplina {
 		Disciplina = disciplina;
 	}
 
-	@Override
+	@Override/*equals e hashcode*/
 	public int hashCode() {
 		return Objects.hash(Disciplina, Nota);
 	}

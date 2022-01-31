@@ -1,6 +1,7 @@
 package cursojava.executavel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,12 +18,12 @@ public class PrimeiraClassejava {
 		
 		List<Aluno>alunos = new ArrayList<Aluno>();
 		
-		List<Aluno>alunosAprovados = new ArrayList<Aluno>();
-		List<Aluno>alunosRecuperacao = new ArrayList<Aluno>();
-		List<Aluno>alunosReprovados = new ArrayList<Aluno>();
+	/*é uma lista que  dentro dela temos uma chave que identifica uma sequencia de valores tambem*/
+		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
-
-
+		maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>());
 		for (int qtd= 1; qtd <=5; qtd++) {
 		
 		String nome =JOptionPane.showInputDialog("qual o nome do "+qtd+ "º aluno ? ");
@@ -84,27 +85,27 @@ public class PrimeiraClassejava {
 		}
 		for (Aluno aluno : alunos) {/*separado em listas*/
 			if (aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.APROVADO)) {
-				alunosAprovados.add(aluno);
+				maps.get(StatusAluno.APROVADO).add(aluno);
 			}else
 				if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
-				alunosRecuperacao.add(aluno);	
+					maps.get(StatusAluno.RECUPERACAO).add(aluno);	
 				}else
 					if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.REPROVADO)) {
-						alunosReprovados.add(aluno);
+						maps.get(StatusAluno.REPROVADO).add(aluno);
 					}
 		}	System.out.println("---------Lista dos aprovados---------");
-		for (Aluno aluno : alunosAprovados) {
+		for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 			System.out.println("Aluno = "+aluno.getNome()+" / resultado = "+ aluno.getAlunoAprovado()+ " com média de = "+ aluno.getMediaNota());
 			
 
 		}System.out.println("---------Lista dos reprovados---------");
-		for (Aluno aluno : alunosReprovados) {
+		for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
 			System.out.println("Aluno = "+aluno.getNome()+" / resultado = "+ aluno.getAlunoAprovado()+ " com média de = "+ aluno.getMediaNota());
 			
 		
 		}
 		System.out.println("---------Lista dos alunos em recuperação---------");
-		for (Aluno aluno : alunosRecuperacao) {
+		for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Aluno = "+aluno.getNome()+ " / resultado = "+ aluno.getAlunoAprovado()+ " com média de = "+ aluno.getMediaNota());
 			
 	}}}
