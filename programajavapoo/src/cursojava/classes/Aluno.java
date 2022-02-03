@@ -7,21 +7,12 @@ import java.util.Objects;
 import cursojava.constantes.StatusAluno;
 
 /*Essa é nossa classe/objeto que representa o Aluno*/
-public class Aluno {
+public class Aluno extends Pessoa {
 
 	/*Esses são os atributos do Aluno*/
-		private String nome;
-	    private int idade;
-		private  String dataNascimento;
-		private String registroGeral;
-		private String numeroCpf;
-		private String nomeMae;
-		private String nomePai;
 		private String dataMatricula;
 		private String nomeEscola;
-		private String serieMatriculado;
-		
-			
+		private String serieMatriculado;	
 		/*Lista de disciplina */
 		private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
@@ -38,15 +29,15 @@ public class Aluno {
 		}
 		/*Construtor Java*/
 		public Aluno (String nomePadrao) {  
-			nome = nomePadrao;
+			super.nome = nomePadrao;
 		}
 		/*Construtor Java*/
 		public Aluno (String nomePadrao, int idadePadrao) {
-			nome = nomePadrao;
-			idade = idadePadrao;
+			super.nome = nomePadrao;
+			super.idade = idadePadrao;
 		}
 		
-		
+	
 		
 		/*Veremos os métodos SETTERS e GETTERS do Objeto*/
 		/*SET é para adicionar ou receber dados para os atributos*/
@@ -156,6 +147,17 @@ public class Aluno {
 			Aluno other = (Aluno) obj;
 			return Objects.equals(nome, other.nome) && Objects.equals(numeroCpf, other.numeroCpf);
 		}
+		
+		@Override /*Identifica método sobreescrito*/
+		public boolean pessoaMaiorIdade() {
+			return super.pessoaMaiorIdade();
+		}
+		
+		public String msgMaiorIdade() {
+			return this.pessoaMaiorIdade() ? "Obaaa aluno é maior de idade" : "vish.. você é menor de idade";
+				
+		}
+		
 		
 		
 		}

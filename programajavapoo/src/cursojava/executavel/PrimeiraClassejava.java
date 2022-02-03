@@ -16,15 +16,17 @@ public class PrimeiraClassejava {
 
 	public static void main(String[] args) {
 		
+		String login = JOptionPane.showInputDialog("informe o login");
+		String senha = JOptionPane.showInputDialog("informe a senha");
+		
+		if(login.equalsIgnoreCase("admin")&& senha.equals("admin"))  {
 		List<Aluno>alunos = new ArrayList<Aluno>();
 		
-	/*é uma lista que  dentro dela temos uma chave que identifica uma sequencia de valores tambem*/
+	/*hashMap é uma lista que  dentro dela temos uma chave que identifica uma sequencia de valores tambem*/
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
-		maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
-		maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>());
-		maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>());
-		for (int qtd= 1; qtd <=5; qtd++) {
+		
+		for (int qtd= 1; qtd <=2; qtd++) {
 		
 		String nome =JOptionPane.showInputDialog("qual o nome do "+qtd+ "º aluno ? ");
 		/*String idade = JOptionPane.showInputDialog("qual a idade do aluno?");
@@ -65,6 +67,10 @@ public class PrimeiraClassejava {
 		
 			aluno1.getDisciplinas().add(disciplina);
 		}
+		maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>());
+		maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>());
+		
 		/*removendo alguma disciplina*/
 		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
 		//opcao sim é Zero 0, não é 1, 2 é cancelar
@@ -108,6 +114,6 @@ public class PrimeiraClassejava {
 		for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Aluno = "+aluno.getNome()+ " / resultado = "+ aluno.getAlunoAprovado()+ " com média de = "+ aluno.getMediaNota());
 			
-	}}}
+	}}}}
 		
 
