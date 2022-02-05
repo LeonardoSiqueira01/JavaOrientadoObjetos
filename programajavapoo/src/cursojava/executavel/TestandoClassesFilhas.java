@@ -31,6 +31,8 @@ public static void main(String[] args) {
 	System.out.println(diretor.pessoaMaiorIdade());
 	System.out.println(secretario.pessoaMaiorIdade());
 	
-	
+	System.out.println("salario do aluno é "+ aluno.salario());
+	System.out.println("salario do diretor é "+ diretor.salario());
+	System.out.println("salario do secretario é "+ secretario.salario());
 }
 }

@@ -8,8 +8,13 @@ public abstract class  Pessoa {
 	protected String numeroCpf;
 	protected String nomeMae;
 	protected String nomePai;
+	/*Método abstrato é que fica na classe pai é obrigatorio para as classes filhas*/
+	public abstract double salario();
+
+	
 	protected String getNome() {
 		return nome;
+		
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
