@@ -22,6 +22,7 @@ public static void main(String[] args) {
 	secretario.setExperiencia("administração");
 	secretario.setNumeroCpf("312341313112");
 	secretario.setIdade(25);
+	secretario.setNome("marceli gata");
 	
 	System.out.println(aluno);
 	System.out.println(diretor);
@@ -34,5 +35,15 @@ public static void main(String[] args) {
 	System.out.println("salario do aluno é "+ aluno.salario());
 	System.out.println("salario do diretor é "+ diretor.salario());
 	System.out.println("salario do secretario é "+ secretario.salario());
+	
+	teste(aluno);
+	teste(diretor);
+	teste(secretario);
+	
+	
+}
+public static void teste(Pessoa pessoa) {
+	System.out.println("essa pessoa é demais "+pessoa.getNome()+" e o salario é de = "
+			+pessoa.salario());
 }
 }

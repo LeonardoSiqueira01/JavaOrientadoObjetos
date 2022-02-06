@@ -10,6 +10,7 @@ import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
+import cursojava.classes.Secretario;
 import cursojava.constantes.StatusAluno;
 
 public class PrimeiraClassejava {
@@ -18,8 +19,14 @@ public class PrimeiraClassejava {
 		
 		String login = JOptionPane.showInputDialog("informe o login");
 		String senha = JOptionPane.showInputDialog("informe a senha");
+		Secretario secretario = new Secretario(); /*Diretamente com o objeto*/
+		secretario.setLogin(login);
+		secretario.setSenha(senha);
+		if (secretario.autenticar()) { /*se true acessa, se false não acessa*/
+			
 		
-		if(login.equalsIgnoreCase("admin")&& senha.equals("admin"))  {
+		
+		
 		List<Aluno>alunos = new ArrayList<Aluno>();
 		
 	/*hashMap é uma lista que  dentro dela temos uma chave que identifica uma sequencia de valores tambem*/
@@ -114,6 +121,9 @@ public class PrimeiraClassejava {
 		for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
 			System.out.println("Aluno = "+aluno.getNome()+ " / resultado = "+ aluno.getAlunoAprovado()+ " com média de = "+ aluno.getMediaNota());
 			
-	}}}}
+	}}else {
+		JOptionPane.showMessageDialog(null, "acesso não autorizado!");
+	}
+		}}
 		
 

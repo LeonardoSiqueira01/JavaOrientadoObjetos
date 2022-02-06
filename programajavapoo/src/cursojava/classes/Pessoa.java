@@ -8,11 +8,16 @@ public abstract class  Pessoa {
 	protected String numeroCpf;
 	protected String nomeMae;
 	protected String nomePai;
+	
 	/*Método abstrato é que fica na classe pai é obrigatorio para as classes filhas*/
 	public abstract double salario();
-
 	
-	protected String getNome() {
+	/*Retorna true se idade for >= 18 */
+	public boolean pessoaMaiorIdade() {
+		return idade >= 21;
+	}
+	
+	public String getNome() {
 		return nome;
 		
 	}
@@ -56,9 +61,6 @@ public abstract class  Pessoa {
 		this.nomePai = nomePai;
 	}
 	
-	/*Retorna true se idade for >= 18 */
-	public boolean pessoaMaiorIdade() {
-		return idade >= 21;
-	}
+	
 	
 }

@@ -1,12 +1,16 @@
 package cursojava.classes;
 /*CLASSE FILHA DE PESSOA EXTENDE DE PESSOA*/
 
-public class Secretario extends Pessoa {
+import cursojava.interfaces.PermitirAcesso;
+
+public class Secretario extends Pessoa implements PermitirAcesso {
 
 	private String registro;
 	private String nivelCargo;
 	private String experiencia;
 	
+	private String login;
+	private String senha;
 	
 	
 	
@@ -39,6 +43,23 @@ public class Secretario extends Pessoa {
 	public double salario() {
 		// TODO Auto-generated method stub
 		return 1880.00 * 0.9;
+	}
+	/*Esse é o metodo do contrato de autenticacao*/
+	public boolean autenticar() {
+		/*retorna sim caso o login e senha seja admin, senão false*/
+		return login.equals("admin")&& senha.equals("admin");
+	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	
