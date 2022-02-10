@@ -1,10 +1,18 @@
 package cursojava.classes;
-  /*CLASSE FILHA DE PESSOA EXTENDE DE PESSOA*/
-public class Diretor extends Pessoa {
+
+import cursojava.interfaces.PermitirAcesso;
+
+/*CLASSE FILHA DE PESSOA EXTENDE DE PESSOA*/
+public class Diretor extends Pessoa implements PermitirAcesso{
 
 	private String registroEducacao;
 	private int tempoDirecao;
 	private String titulacao;
+	
+	private String login; 
+	private String senha;
+	
+	
 	
 	public String getRegistroEducacao() {
 		return registroEducacao;
@@ -24,6 +32,16 @@ public class Diretor extends Pessoa {
 	public void setTitulacao(String titulacao) {
 		this.titulacao = titulacao;
 	}
+	
+	public Diretor(String login, String senha) {
+	this.login = login;
+	this.senha = senha;
+	}
+	
+	public Diretor() {
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "Diretor [registroEducacao=" + registroEducacao + ", tempoDirecao=" + tempoDirecao + ", titulacao="
@@ -38,7 +56,15 @@ public class Diretor extends Pessoa {
 	}
 	
 	
-	
+	public boolean autenticar(String login, String senha) {
+		this.login = login;
+		this.senha = senha;
+		return autenticar();
+	}
+	@Override
+	public boolean autenticar() {
+		return login.equals("admin") && senha.equals("admin");
+		}
 
 		
 	

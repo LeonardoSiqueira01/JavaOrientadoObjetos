@@ -17,7 +17,7 @@ public static void main(String[] args) {
 	diretor.setRegistroGeral("41414141");
 	diretor.setNome("edigio");
 	diretor.setIdade(66);
-	
+ 	
 	Secretario secretario = new Secretario();
 	secretario.setExperiencia("administração");
 	secretario.setNumeroCpf("312341313112");

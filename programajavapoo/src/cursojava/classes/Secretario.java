@@ -9,9 +9,17 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 	private String nivelCargo;
 	private String experiencia;
 	
+	private String login;
+	private String senha;
 
-	
-	
+	public Secretario(String login, String senha) {
+		this.login = login;
+		this.senha = senha;
+	}
+
+	public Secretario() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getRegistro() {
 		return registro;
 	}
@@ -31,9 +39,6 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 		this.experiencia = experiencia;
 	}
 	
-	public boolean autenticar(String login, String senha) {
-		return login.equals("admin")&& senha.equals("admin");
-	}
 
 	
 	@Override
@@ -42,11 +47,24 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 				+ ", nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
 				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + "]";
 	}
-	@Override
+	
+	
 	public double salario() {
-		// TODO Auto-generated method stub
 		return 1880.00 * 0.9;
 	}
 	
+	public boolean autenticar(String login, String senha) {
+		this.login = login;
+		this.senha = senha;
+	return autenticar();
+	}
 	
-}
+	
+	public boolean autenticar() {
+		return login.equals("admin")&&senha.equals("admin");
+	}
+
+	}
+	
+	
+

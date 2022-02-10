@@ -9,8 +9,10 @@ import javax.swing.JOptionPane;
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classes.Secretario;
+import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
 import cursojava.interfaces.PermitirAcesso;
 
@@ -21,11 +23,9 @@ public class PrimeiraClassejava {
 		String login = JOptionPane.showInputDialog("informe o login");
 		String senha = JOptionPane.showInputDialog("informe a senha");
 		
-		if (new Secretario().autenticar(login, senha)) { /*se true acessa, se false não acessa*/
+		
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) { /*se true acessa, se false não acessa*/
 			
-		
-		
-		
 		List<Aluno>alunos = new ArrayList<Aluno>();
 		
 	/*hashMap é uma lista que  dentro dela temos uma chave que identifica uma sequencia de valores tambem*/
