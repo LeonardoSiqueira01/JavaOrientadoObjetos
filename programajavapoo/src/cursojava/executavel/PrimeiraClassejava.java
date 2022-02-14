@@ -1,9 +1,12 @@
 package cursojava.executavel;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 import javax.swing.text.StyledEditorKit.ForegroundAction;
@@ -18,9 +21,12 @@ import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClassejava {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 	try {
 		
+		File file = new File("c://lines.txt");
+		Scanner scanner = new Scanner(file);
+
 		String login = JOptionPane.showInputDialog("informe o login");
 		String senha = JOptionPane.showInputDialog("informe a senha");
 		
@@ -33,11 +39,11 @@ public class PrimeiraClassejava {
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
 		
-		for (int qtd= 1; qtd <=2; qtd++) {
+		for (int qtd= 1; qtd <=1; qtd++) {
 		
 		String nome =JOptionPane.showInputDialog("qual o nome do "+qtd+ "º aluno ? ");
-		/*String idade = JOptionPane.showInputDialog("qual a idade do aluno?");
-		String dataNascimento =JOptionPane.showInputDialog("qual a data de nascimento ? ");
+		String idade = JOptionPane.showInputDialog("qual a idade do aluno?");
+		/*String dataNascimento =JOptionPane.showInputDialog("qual a data de nascimento ? ");
 		String rg = JOptionPane.showInputDialog("Qual o RG?");
 		String cpf = JOptionPane.showInputDialog("Qual o CPF");
 		String mae = JOptionPane.showInputDialog("Qual o nome da mãe?");
@@ -52,8 +58,8 @@ public class PrimeiraClassejava {
 		
 		Aluno aluno1 = new Aluno(); 
 		aluno1.setNome(nome);
-		/*aluno1.setIdade(Integer.valueOf(idade));
-		aluno1.setDataNascimento(dataNascimento);
+		aluno1.setIdade(Integer.valueOf(idade));
+		/*aluno1.setDataNascimento(dataNascimento);
 		aluno1.setRegistroGeral(rg);
 		aluno1.setNumeroCpf(cpf);
 		aluno1.setNomeMae(mae);
@@ -67,7 +73,7 @@ public class PrimeiraClassejava {
 		for (int pos = 1; pos <=1; pos++) {
 			String nomeDisciplina = JOptionPane.showInputDialog("nome da Disciplina "+pos+ " ?");
 			String notaDisciplina = JOptionPane.showInputDialog("nota da disciplina "+pos+ " ?");
-			
+		
 			Disciplina disciplina = new Disciplina();
 			disciplina.setDisciplina(nomeDisciplina);
 			disciplina.setNota(Double.valueOf(notaDisciplina));
@@ -126,10 +132,36 @@ public class PrimeiraClassejava {
 	}
 		/*chave*/
 		
-	}catch (Exception e) {
+	}catch (NumberFormatException e) {
+		StringBuilder saida = new StringBuilder();
+		
 		e.printStackTrace();/*imprime erro no console java*/
-		JOptionPane.showMessageDialog(null, "erro ao processar notas");
-	}}}
+		
+		
+		JOptionPane.showMessageDialog(null, "erro ao processar notas");	/*Mensagem de erro ou causa*/
+
+		
+		System.out.println("mensagem do erro:"+e.getMessage());
+		
+		for (int posicao = 0; posicao < e.getStackTrace().length;posicao++) {
+			saida.append("\n classe de erro: "+e.getStackTrace()[posicao].getClassName());  
+			saida.append("\n método de erro: "+e.getStackTrace()[posicao].getMethodName());
+			saida.append("\n linha de erro: "+e.getStackTrace()[posicao].getLineNumber());
+			saida.append("\n Class: "+e.getClass().getName());
+
+		}
+		JOptionPane.showMessageDialog(null, "erro de convercao de numero" + saida.toString());
+	}catch (NullPointerException e) {
+		
+		JOptionPane.showMessageDialog(null, "Eita um null pointer exception: " + e.getClass());
+
+	} catch (Exception e) { /*captura todas exceções que nao prevemos*/
+		e.printStackTrace();
+		JOptionPane.showMessageDialog(null, "Erro inesperado :"+ e.getClass().getName());
+	}
+	
+	}
+	}
 	
 
 		
