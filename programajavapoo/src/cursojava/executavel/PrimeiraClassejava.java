@@ -11,6 +11,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
+import curso.java.excecao.ExcecaoProcessarNota;
 import cursojava.classes.Aluno;
 import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
@@ -22,11 +23,9 @@ import cursojava.interfaces.PermitirAcesso;
 public class PrimeiraClassejava {
 
 	public static void main(String[] args) throws FileNotFoundException {
-	try {
+	try { lerArquivo();
 		
-		File file = new File("c://lines.txt");
-		Scanner scanner = new Scanner(file);
-
+		
 		String login = JOptionPane.showInputDialog("informe o login");
 		String senha = JOptionPane.showInputDialog("informe a senha");
 		
@@ -115,7 +114,6 @@ public class PrimeiraClassejava {
 		}	System.out.println("---------Lista dos aprovados---------");
 		for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 			System.out.println("Aluno = "+aluno.getNome()+" / resultado = "+ aluno.getAlunoAprovado()+ " com média de = "+ aluno.getMediaNota());
-			
 
 		}System.out.println("---------Lista dos reprovados---------");
 		for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
@@ -130,9 +128,9 @@ public class PrimeiraClassejava {
 	}}else {
 		JOptionPane.showMessageDialog(null, "acesso não autorizado!");
 	}
-		/*chave*/
+	
 		
-	}catch (NumberFormatException e) {
+	}catch (Exception e) {
 		StringBuilder saida = new StringBuilder();
 		
 		e.printStackTrace();/*imprime erro no console java*/
@@ -151,16 +149,18 @@ public class PrimeiraClassejava {
 
 		}
 		JOptionPane.showMessageDialog(null, "erro de convercao de numero" + saida.toString());
-	}catch (NullPointerException e) {
-		
-		JOptionPane.showMessageDialog(null, "Eita um null pointer exception: " + e.getClass());
-
-	} catch (Exception e) { /*captura todas exceções que nao prevemos*/
-		e.printStackTrace();
-		JOptionPane.showMessageDialog(null, "Erro inesperado :"+ e.getClass().getName());
-	}
+	}finally {	/*Sempre é executado ocorrendo erros ou não. Porque */
+/*Finally sempre é usado quando se precisa executar um processo acontecendo erro ou não no sistema*/
+		JOptionPane.showMessageDialog(null, "obrigado por aprender Java comigo");
+	}}
+	public static void lerArquivo() throws FileNotFoundException  {
+try {
+		File file = new File("c://lines.txt");
+		Scanner scanner = new Scanner(file);	
+	} catch (FileNotFoundException e) {
+		throw new FileNotFoundException(e.getMessage());
+	} }
 	
-	}
 	}
 	
 
