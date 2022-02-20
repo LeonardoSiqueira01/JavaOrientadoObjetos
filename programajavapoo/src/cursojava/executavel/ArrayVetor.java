@@ -7,15 +7,25 @@ public class ArrayVetor {
 	
 	 /*Array pode ser de todos tipos de dados e objetos também*/
 	 
-	 /*Array sempre deve ter a quantidade de posições definidas*/
-	 double notas[] = new double[4];
+	
 	 
-	 /*Atribuir valor nas posições do Arrays*/
-	 notas[0]= 7.8;
-	 notas[1]= 7.0;
-	 notas[2]= 9.5;
-	 notas[3]= 4.5;
-	 System.out.println(notas[1]);
+String posicoes = JOptionPane.showInputDialog("Quantas posicoes o array deve ter?");
+
+/*Array sempre deve ter a quantidade de posições definidas*/
+double notas[] = new double[Integer.parseInt(posicoes)];
+
+
+for (int pos=0; pos<notas.length;pos++) {
+String valor=JOptionPane.showInputDialog("Qual o valor da nota = " +(pos+1));
+notas[pos]=Double.valueOf(valor);
+}
+
+	 //*Length retorna um inteiro, usar num for na parte de tamanho de um array*//
+	 for(int pos=0; pos< notas.length; pos++) {
+		 System.out.println("Nota "+(pos+1)+ " = "+notas[pos]);
+	 }
 	 
- }}
+	
+}
+ }
 
