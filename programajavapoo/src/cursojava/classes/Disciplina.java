@@ -1,5 +1,7 @@
 package cursojava.classes;
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Objects;
 
 /*Essa classe disciplina servirá para todos objetos e instancias de notas e materias*/
@@ -7,28 +9,43 @@ public class Disciplina {
 
 	/*2 atributos na classe disciplina*/
 	private String Disciplina;
-	private double Nota;
+	/*Cada disciplina tera 4 notas durante o ano inteiro*/
+	private double[] Nota = new double[4];
 	
 	/*getters e setters dos atributos*/
-	public double getNota() {
-		return Nota;
-	}
-
-	public void setNota(double nota) {
-		Nota = nota;
-	}
+	
 
 	public String getDisciplina() {
 		return Disciplina;
+	}
+
+	public double[] getNota() {
+		return Nota;
+	}
+
+	public void setNota(double[] nota) {
+		Nota = nota;
 	}
 
 	public void setDisciplina(String disciplina) {
 		Disciplina = disciplina;
 	}
 
-	@Override/*equals e hashcode*/
+	@Override
 	public int hashCode() {
-		return Objects.hash(Disciplina, Nota);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.hashCode(Nota);
+		result = prime * result + Objects.hash(Disciplina);
+		return result;
+	}
+
+	public double getMediaNotas() {
+		double somaTotal =0;
+		for (int  pos = 0; pos < Nota.length;  pos++) {
+			somaTotal += Nota[pos];	
+		}
+		return somaTotal/4;
 	}
 
 	@Override
@@ -40,8 +57,7 @@ public class Disciplina {
 		if (getClass() != obj.getClass())
 			return false;
 		Disciplina other = (Disciplina) obj;
-		return Objects.equals(Disciplina, other.Disciplina)
-				&& Double.doubleToLongBits(Nota) == Double.doubleToLongBits(other.Nota);
+		return Objects.equals(Disciplina, other.Disciplina) && Arrays.equals(Nota, other.Nota);
 	}
 
 	@Override
