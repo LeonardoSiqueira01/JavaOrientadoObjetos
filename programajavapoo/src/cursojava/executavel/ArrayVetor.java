@@ -11,6 +11,8 @@ public class ArrayVetor {
 	 double[] notasLogica = {1.26,4.6,6.5,8.4};
 	 /*Criação do aluno*/
 	 Aluno aluno = new Aluno();
+	
+
 	 aluno.setNome("Leonardo Siqueira");
 	 aluno.setNomeEscola("Jdev Treinamento");
 	 
@@ -26,24 +28,37 @@ public class ArrayVetor {
 	 disciplina2.setNota(notasLogica);
 	 aluno.getDisciplinas().add(disciplina2);
 	
-	 System.out.println("Nome do aluno = "+ aluno.getNome() + " inscrito no curso"+ aluno.getNomeEscola());
-	 for (Disciplina d : aluno.getDisciplinas()) {
-		System.out.println("--------------Disciplina do aluno-----------");
-		System.out.println("Disciplina : "+ d.getDisciplina());
-		System.out.println("As notas da disciplina são : "); 
+	 
+	 Aluno aluno2 = new Aluno();
+	 aluno2.setNome("Leonardo Siqueira22");
+	 aluno2.setNomeEscola("Jdev Treinamento22");
+	 
+	 /*Criação da Disciplina*/
+	 Disciplina disciplina3= new Disciplina();
+	 disciplina3.setDisciplina("Curso de Java22");
+	 disciplina3.setNota(notas);
+	 aluno2.getDisciplinas().add(disciplina3);
+	 
+	 
+	 Disciplina disciplina4 = new Disciplina();
+	 disciplina4.setDisciplina("Logica de programacao22");
+	 disciplina4.setNota(notasLogica);
+	 aluno2.getDisciplinas().add(disciplina4);
+	//--------------------------------------------------------------------
+	 
+	 Aluno[] arrayAlunos = new Aluno[2];
+	 
+		arrayAlunos[0] = aluno;
+		arrayAlunos[1] = aluno2;
 		
-		double notaMax = 0.0;
-		for(int pos = 0; pos <d.getNota().length; pos++) {
-			System.out.println("Nota "+pos +" é igual = "+d.getNota()[pos]);
-			if (pos==0) {
-				notaMax = d.getNota()[pos];
-			}else {
-				if (d.getNota()[pos]> notaMax) {
-					notaMax = d.getNota()[pos];
-				}
+		for(int pos =0; pos < arrayAlunos.length; pos++) {
+			System.out.println("Nome do aluno é "+  arrayAlunos[pos].getNome());
+			for(Disciplina d: arrayAlunos[pos].getDisciplinas()) {
+				System.out.println("nome da disciplina é "+ d.getDisciplina());
+			for( int posnota = 0; posnota< d.getNota().length; posnota++) {
+				System.out.println("A nota " + posnota+ " é : "+d.getNota()[posnota]);
 			}
-			} System.out.println("A maior nota da disciplina = "+d.getDisciplina()+" e de valor :"+notaMax);
-		}
-	 }
+		}}
+ } 
  }
 
