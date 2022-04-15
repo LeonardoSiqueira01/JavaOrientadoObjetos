@@ -36,7 +36,7 @@ public class PrimeiraClassejava {
 		
 	/*hashMap é uma lista que  dentro dela temos uma chave que identifica uma sequencia de valores tambem*/
 		HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
-		
+		 
 		for (int qtd= 1; qtd <=1; qtd++) {
 		
 		String nome =JOptionPane.showInputDialog("qual o nome do "+qtd+ "º aluno ? ");
