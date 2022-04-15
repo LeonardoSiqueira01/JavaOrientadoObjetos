@@ -29,7 +29,7 @@ public class PrimeiraClassejava {
 		String login = JOptionPane.showInputDialog("informe o login");
 		String senha = JOptionPane.showInputDialog("informe a senha");
 		
-		
+		 
 		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) { /*se true acessa, se false não acessa*/
 			
 		List<Aluno>alunos = new ArrayList<Aluno>();
