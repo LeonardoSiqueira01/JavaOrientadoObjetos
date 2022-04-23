@@ -25,7 +25,7 @@ public class PrimeiraClassejava {
 	public static void main(String[] args) throws FileNotFoundException {
 	try { lerArquivo();
 		
-		
+		 
 		String login = JOptionPane.showInputDialog("informe o login");
 		String senha = JOptionPane.showInputDialog("informe a senha");
 		
